@@ -1,23 +1,21 @@
 from tkinter import Tk, BOTH, Canvas
 from graphics import Window, Line, Point
 from cell import Cell
+from maze import Maze
 
 def main():
-    win = Window(800, 600)
-    #TO DO Generate some cells to test the implementation.
-    cell1 = Cell(win)
-    cell1.left_wall = False
-    cell1.draw(100,100,125,125)
+    num_rows = 10
+    num_cols = 12
+    margin_left = 50
+    margin_top = 25
+    screen_height = 800
+    screen_width = 1000
+    cell_size_x = (screen_width - (2*margin_left))/num_cols
+    cell_size_y = (screen_height - (2*margin_top))/num_rows
 
-    cell2 = Cell(win)
-    cell2.top_wall = False
-    cell2.draw(320,450,345,475)
+    win = Window(screen_width, screen_height)
+    maze = Maze(margin_left, margin_top, num_rows, num_cols, cell_size_x, cell_size_y, win)
 
-    cell1.draw_move(cell2)
-
-    #line = Line(Point(50,50), Point(400,400))
-    #win.draw_line(line, "white")
-    
     win.wait_for_close()
 
 if __name__ == "__main__":
