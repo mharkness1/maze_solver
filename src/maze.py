@@ -56,7 +56,7 @@ class Maze:
         if self._win is None:
             return
         self._win.redraw()
-        time.sleep(0.05)
+        time.sleep(0.005)
 
     def _break_entrance_and_exit(self):
         self._cells[0][0].top_wall = False
