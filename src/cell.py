@@ -11,25 +11,42 @@ class Cell:
         self._y1 = None
         self._y2 = None
         self._win = win
+        self.visisted = False
     
-    def draw(self, x1, y1, x2, y2):
+    def draw(self, x1, y1, x2, y2, background_colour):
         self._x1 = x1
         self._x2 = x2
         self._y1 = y1
         self._y2 = y2
+        self.background_colour = background_colour
         
         if self.left_wall:
             line = Line(Point(x1,y1), Point(x1,y2))
             self._win.draw_line(line)
+        else:
+            line = Line(Point(x1,y1), Point(x1,y2))
+            self._win.draw_line(line, self.background_colour)
+
         if self.top_wall:
             line = Line(Point(x1,y1), Point(x2,y1))
             self._win.draw_line(line)
+        else:
+            line = Line(Point(x1,y1), Point(x2,y1))
+            self._win.draw_line(line, self.background_colour)
+
         if self.right_wall:
             line = Line(Point(x2,y1), Point(x2,y2))
             self._win.draw_line(line)
+        else:
+            line = Line(Point(x2,y1), Point(x2,y2))
+            self._win.draw_line(line, self.background_colour)
+
         if self.bottom_wall:
             line = Line(Point(x1,y2), Point(x2,y2))
             self._win.draw_line(line)
+        else:
+            line = Line(Point(x1,y2), Point(x2,y2))
+            self._win.draw_line(line, self.background_colour)
     
     def draw_move(self, to_cell, undo=False):
         self._center_x = (self._x1 + self._x2)/2

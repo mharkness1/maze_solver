@@ -4,8 +4,8 @@ from cell import Cell
 from maze import Maze
 
 def main():
-    num_rows = 10
-    num_cols = 12
+    num_rows = 3
+    num_cols = 3
     margin_left = 50
     margin_top = 25
     screen_height = 800
