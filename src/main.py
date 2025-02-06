@@ -4,8 +4,8 @@ from cell import Cell
 from maze import Maze
 
 def main():
-    num_rows = 24
-    num_cols = 30
+    num_rows = 9
+    num_cols = 12
     margin_left = 50
     margin_top = 25
     screen_height = 800
@@ -14,7 +14,12 @@ def main():
     cell_size_y = (screen_height - (2*margin_top))/num_rows
 
     win = Window(screen_width, screen_height)
-    maze = Maze(margin_left, margin_top, num_rows, num_cols, cell_size_x, cell_size_y, win, 10)
+    maze = Maze(margin_left, margin_top, num_rows, num_cols, cell_size_x, cell_size_y, win)
+    is_solvable = maze._solve()
+    if not is_solvable:
+        print("Maze cannot be solved!")
+    else:
+        print("Maze solved")
 
     win.wait_for_close()
 

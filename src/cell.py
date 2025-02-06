@@ -58,6 +58,6 @@ class Cell:
 
         line = Line(Point(self._center_x, self._center_y), Point(to_cell._center_x, to_cell._center_y))
         if self.undo == False:
-            self._win.draw_line(line, "red")
+            self._win.draw_line(line, "gray")
         elif self.undo == True:
-            self.win.draw_line(line, "gray")
+            self._win.draw_line(line, "red")
